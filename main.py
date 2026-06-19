@@ -1,13 +1,7 @@
-from interface import screen, assets, feedback
-
-from logica import state, rules, movements
-
-from tutor import auto_solver, auto_mode, explainer
-
-from dados import tracker, exporter, dashboard
+from interface.screen import run_game
 
 def main():
-    print("Hello World!")
+    run_game()
 
 if __name__ == "__main__":
     main()
