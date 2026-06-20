@@ -7,7 +7,7 @@ ALTURA = 620
 FPS = 60
 
 CORES = {
-    "fundo_menu": (210, 210, 210),
+    "fundo_menu": (225, 225, 225),
     "fundo_jogo": (75, 75, 75),
     "texto": (25, 25, 25),
     "texto_claro": (255, 255, 255),

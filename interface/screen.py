@@ -204,8 +204,9 @@ class HanoiScreen:
         draw_text(self.janela, "Créditos", self.fonte_titulo, CORES["texto"], centro=(LARGURA // 2, 115))
         linhas = [
             "Projeto Torre de Hanói Educacional",
-            "Interface: Pygame",
-            "MVP para demonstracao e integracao dos grupos",
+            "Professora Adria",
+            "Desenvolvido por: <<<<<<(dps colocar nomes):>>>>>>"
+            # Dps separar bonitinho os nomes, talvez com emojis ou algo do tipo
         ]
         for indice, linha in enumerate(linhas):
             draw_text(
