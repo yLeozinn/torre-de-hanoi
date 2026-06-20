@@ -3,3 +3,9 @@
 .db
 .csv
 .log
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.agents/
