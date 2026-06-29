@@ -41,7 +41,7 @@ class HanoiScreen:
         self.area_tabuleiro = pygame.Rect(90, 130, 820, 365)
 
         self.botao_jogar = pygame.Rect(410, 300, 180, 46)
-        self.botao_creditos = pygame.Rect(620, 300, 160, 46)
+        self.botao_creditos = pygame.Rect(693, 300, 120, 46)
         self.botao_menos = pygame.Rect(410, 220, 42, 42)
         self.botao_mais = pygame.Rect(548, 220, 42, 42)
         self.botao_menu = pygame.Rect(18, 18, 130, 34)
