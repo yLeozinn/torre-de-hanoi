@@ -2,6 +2,7 @@
 
 import pygame
 
+from dados.dashboard import build_summary
 from dados.tracker import GameTracker
 from interface.assets import (
     ALTURA,
@@ -34,6 +35,7 @@ class HanoiScreen:
         self.maximo_discos = 5
         self.estado = GameState(total_discos)
         self.contador = GameTracker(total_discos)
+        self.registros = []
         self.feedback = Feedback()
         self.torre_selecionada = None
 
@@ -41,7 +43,8 @@ class HanoiScreen:
         self.area_tabuleiro = pygame.Rect(90, 130, 820, 365)
 
         self.botao_jogar = pygame.Rect(410, 300, 180, 46)
-        self.botao_creditos = pygame.Rect(693, 300, 120, 46)
+        self.botao_creditos = pygame.Rect(694, 300, 120, 46)
+        self.botao_dados = pygame.Rect(185, 300, 120, 46)
         self.botao_menos = pygame.Rect(410, 220, 42, 42)
         self.botao_mais = pygame.Rect(548, 220, 42, 42)
         self.botao_menu = pygame.Rect(18, 18, 130, 34)
@@ -70,6 +73,9 @@ class HanoiScreen:
         elif self.tela == "credits":
             if self.botao_voltar.collidepoint(posicao):
                 self.tela = "menu"
+        elif self.tela == "dashboard":
+            if self.botao_voltar.collidepoint(posicao):
+                self.tela = "menu"
         elif self.tela == "victory":
             self.handle_victory_click(posicao)
         else:
@@ -84,6 +90,8 @@ class HanoiScreen:
             self.start_game()
         elif self.botao_creditos.collidepoint(posicao):
             self.tela = "credits"
+        elif self.botao_dados.collidepoint(posicao):
+            self.tela = "dashboard"
 
     def handle_game_click(self, posicao):
         if self.botao_menu.collidepoint(posicao):
@@ -111,6 +119,7 @@ class HanoiScreen:
             self.feedback.set_info(mensagem)
             if self.estado.is_complete():
                 self.contador.finish()
+                self.registros.append(self.contador.summary())
                 self.feedback.set_success("Desafio concluido.")
                 self.tela = "victory"
         else:
@@ -150,6 +159,8 @@ class HanoiScreen:
             self.draw_menu()
         elif self.tela == "credits":
             self.draw_credits()
+        elif self.tela == "dashboard":
+            self.draw_dashboard()
         elif self.tela == "victory":
             self.draw_game()
             self.draw_victory_modal()
@@ -197,6 +208,13 @@ class HanoiScreen:
             self.fonte,
             CORES["botao_secundario"],
         )
+        draw_button(
+            self.janela,
+            self.botao_dados,
+            "Dados",
+            self.fonte,
+            CORES["botao_dados"],
+        )
 
     def draw_credits(self):
         self.janela.fill(CORES["fundo_menu"])
@@ -215,6 +233,21 @@ class HanoiScreen:
                 self.fonte if indice == 0 else self.fonte_pequena,
                 CORES["texto"],
                 centro=(LARGURA // 2, 230 + indice * 42),
+            )
+
+    def draw_dashboard(self):
+        self.janela.fill(CORES["fundo_menu"])
+        draw_button(self.janela, self.botao_voltar, "Voltar", self.fonte_pequena, CORES["botao_desativado"])
+        draw_text(self.janela, "Dados", self.fonte_titulo, CORES["texto"], centro=(LARGURA // 2, 115))
+
+        linhas = build_summary(self.registros).splitlines()
+        for indice, linha in enumerate(linhas):
+            draw_text(
+                self.janela,
+                linha,
+                self.fonte if indice == 0 else self.fonte_pequena,
+                CORES["texto"],
+                centro=(LARGURA // 2, 210 + indice * 36),
             )
 
     def draw_game(self):
