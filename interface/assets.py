@@ -17,6 +17,7 @@ CORES = {
     "selecionado": (255, 232, 85),
     "botao": (245, 72, 72),
     "botao_secundario": (24, 92, 184),
+    "botao_dados": (98, 75, 176),
     "botao_verde": (33, 170, 71),
     "botao_desativado": (120, 120, 120),
     "texto_botao": (255, 255, 255),
