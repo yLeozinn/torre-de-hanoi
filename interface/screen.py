@@ -62,6 +62,8 @@ class HanoiScreen:
                 elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
                     self.handle_click(evento.pos)
 
+
+
             self.draw()
             self.relogio.tick(FPS)
 
@@ -222,9 +224,27 @@ class HanoiScreen:
         draw_text(self.janela, "Créditos", self.fonte_titulo, CORES["texto"], centro=(LARGURA // 2, 115))
         linhas = [
             "Projeto Torre de Hanói Educacional",
-            "Professora Adria",
-            "Desenvolvido por: <<<<<<(dps colocar nomes):>>>>>>"
-            # Dps separar bonitinho os nomes, talvez com emojis ou algo do tipo
+            "Professora Adria Ramos de Lyra",
+
+            "Desenvolvido por: ",
+            "Samuel da Rocha Villela / "
+            "Leonardo Tavares Gonzaga Filho / "
+            "Ana Beatriz dos Santos Guimarães",
+            "Yuri Lucas Alves Maturana / "
+            "Guilherme Pereira Chanca / "
+            "Thiago do Carmo Dorigo dos Santos",
+            "Eric Jesus de Sá Barroso / "
+            "Lucas da Silva Aquino / "
+            "Lucas Machado Martins",
+            "Rafael Luiz Amazone Lopes / "
+            "Bernardo Martins da Silva / "
+            "João Lucas da Silva Almeida",
+            "Maria Luiza Pimentel  da Mota / "
+            "Raissa Barros Jesus / "
+            "Lorran Coutinho",
+            "Guilherme Azevedo Ventura Machado / "
+            "Nícolas Maciel dos Santos / "
+            "Danilo Rodrigues dos Santos da Silva"
         ]
         for indice, linha in enumerate(linhas):
             draw_text(
