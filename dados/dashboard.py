@@ -11,6 +11,6 @@ def build_summary(registros):
         ideal = registro.get("movimentos_otimos", 0)
         tempo = registro.get("tempo_segundos", 0)
         linhas.append(
-            f"Partida {indice}: {movimentos} movimentos, otimo {ideal}, {tempo}s"
+            f"Partida {indice}: feito em {movimentos} movimentos, o mínimo era em {ideal} movimentos | Tempo: {tempo}s"
         )
     return "\n".join(linhas)

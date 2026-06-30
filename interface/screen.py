@@ -227,23 +227,23 @@ class HanoiScreen:
             "Professora Adria Ramos de Lyra",
 
             "Desenvolvido por: ",
-            "Samuel da Rocha Villela / "
-            "Leonardo Tavares Gonzaga Filho / "
+            "Samuel da Rocha Villela | "
+            "Leonardo Tavares Gonzaga Filho | "
             "Ana Beatriz dos Santos Guimarães",
-            "Yuri Lucas Alves Maturana / "
-            "Guilherme Pereira Chanca / "
+            "Yuri Lucas Alves Maturana | "
+            "Guilherme Pereira Chanca | "
             "Thiago do Carmo Dorigo dos Santos",
-            "Eric Jesus de Sá Barroso / "
-            "Lucas da Silva Aquino / "
+            "Eric Jesus de Sá Barroso | "
+            "Lucas da Silva Aquino | "
             "Lucas Machado Martins",
-            "Rafael Luiz Amazone Lopes / "
-            "Bernardo Martins da Silva / "
+            "Rafael Luiz Amazone Lopes | "
+            "Bernardo Martins da Silva | "
             "João Lucas da Silva Almeida",
-            "Maria Luiza Pimentel  da Mota / "
-            "Raissa Barros Jesus / "
+            "Maria Luiza Pimentel  da Mota | "
+            "Raissa Barros Jesus | "
             "Lorran Coutinho",
-            "Guilherme Azevedo Ventura Machado / "
-            "Nícolas Maciel dos Santos / "
+            "Guilherme Azevedo Ventura Machado | "
+            "Nícolas Maciel dos Santos | "
             "Danilo Rodrigues dos Santos da Silva"
         ]
         for indice, linha in enumerate(linhas):
