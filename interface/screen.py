@@ -1,5 +1,7 @@
 """Tela principal em Pygame para jogar Torre de Hanoi."""
 
+from pathlib import Path
+
 import pygame
 
 from dados.dashboard import build_summary
@@ -17,10 +19,13 @@ from interface.feedback import Feedback
 from logica.movements import move_disk
 from logica.state import GameState
 
+CAMINHO_MUSICA = Path(__file__).resolve().parent.parent / "music" / "background_music.mp3"
+
 
 class HanoiScreen:
     def __init__(self, total_discos=3):
         pygame.init()
+        self.start_background_music()
         self.janela = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Torre de Hanói Educacional")
         self.relogio = pygame.time.Clock()
@@ -53,16 +58,23 @@ class HanoiScreen:
         self.botao_menu_vitoria = pygame.Rect(325, 402, 160, 42)
         self.botao_jogar_novamente = pygame.Rect(515, 402, 160, 42)
 
+    def start_background_music(self):
+        try:
+            pygame.mixer.music.load(CAMINHO_MUSICA)
+            pygame.mixer.music.set_volume(0.15)
+            pygame.mixer.music.play(-1)
+        except pygame.error:
+            pass
+
     def run(self):
         executando = True
         while executando:
+
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT:
                     executando = False
                 elif evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1:
                     self.handle_click(evento.pos)
-
-
 
             self.draw()
             self.relogio.tick(FPS)
